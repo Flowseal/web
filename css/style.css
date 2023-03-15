@@ -1,0 +1,18 @@
+.header_background_grand-canyon {
+  background-image: url("../images/grand-canyon.png");
+}
+.header_menu {
+  font-family: "Oxygen", sans-serif;
+  font-size: 12px;
+}
+.logo__text {
+  font-family: "Lora", serif;
+  font-size: 26px;
+  color: #ffffff;
+}
+.menu__link {
+  text-decoration: none;
+}
+.menu__link_color_white {
+  color: #ffffff;
+}
