@@ -3,118 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <title>Escape.</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Oxygen&display=swap" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body class="page">
     <header class="header header_background_grand-canyon">
       <div class="logo">
-        <span class="logo__text">Escape.</span>
+        <a href="index.html" class="logo__text">Escape.</a>
       </div>
       <nav class="menu header__menu">
-        <a href="#" class="menu__link menu__link_color_white">HOME</a>
-        <a href="#" class="menu__link menu__link_color_white">CATEGORIES</a>
-        <a href="#" class="menu__link menu__link_color_white">ABOUT</a>
-        <a href="#" class="menu__link menu__link_color_white">CONTACT</a>
+        <a href="index.html" class="menu__link">HOME</a>
+        <a href="#" class="menu__link">CATEGORIES</a>
+        <a href="#" class="menu__link">ABOUT</a>
+        <a href="#" class="menu__link">CONTACT</a>
       </nav>
 
-      <h1>Let's do it together</h1>
-      <p>We travel the world in search of stories. Come along for the ride</p>
-      <button>View Latest Posts</button>
+      <div class="topic">
+        <h1 class="topic__heading">Let's do it together</h1>
+        <span class="topic__text">We travel the world in search of stories. Come along for the ride.</span>
+        <button class="topic__button">View Latest Posts</button>
+      </div>
     </header>
-    <main>
-      <nav>
-        <a href="#">Nature</a>
-        <a href="#">Photography</a>
-        <a href="#">Relaxation</a>
-        <a href="#">Vacation</a>
-        <a href="#">Travel</a>
-        <a href="#">Adventure</a>
+    <main class="main">
+      <nav class="menu main__menu">
+        <a href="#" class="menu__link menu__link_light">Nature</a>
+        <a href="#" class="menu__link menu__link_light">Photography</a>
+        <a href="#" class="menu__link menu__link_light">Relaxation</a>
+        <a href="#" class="menu__link menu__link_light">Vacation</a>
+        <a href="#" class="menu__link menu__link_light">Travel</a>
+        <a href="#" class="menu__link menu__link_light">Adventure</a>
       </nav>
 
-      <article>
-        <h2>Featured Posts</h2>
-        <div>
-          <img src="images/road_ahed.png" alt="The road ahed" />
-          <span>The Road Ahead</span>
-          <p>The road ahead might be paved - it might not be.</p>
+      <section>
+        <h2 class="category-header">Featured Posts</h2>
+        <div class="large-post large-post_background-the-road-ahead">
+          <a href="the-road-ahead.html" class="large-post__link">The Road Ahead</a><br />
+          <span class="large-post__text">The road ahead might be paved - it might not be.</span><br />
           <img src="images/mat.png" alt="Mat Vogels" />
-          <span>Mat Vogels</span>
-          <span>September 25, 2015</span>
+          <span class="large-post__author">Mat Vogels</span>
+          <span class="large-post__date">September 25, 2015</span>
         </div>
-        <div>
-          <img src="images/from_top_to_down.png" alt="From top down" />
-          <span>From Top Down</span>
-          <p>Once a year, go someplace you've never been before.</p>
-          <img src="images/william.png" alt="William Wong" />
-          <span>William Wong</span>
-          <span>September 25, 2015</span>
+        <div class="large-post large-post_background-from-top-down">
+          <a class="large-post__link">From Top Down</a><br />
+          <span class="large-post__text">Once a year, go someplace you've never been before.</span><br />
+          <img src="images/william.png" alt="Mat Vogels" />
+          <span class="large-post__author">William Wong</span>
+          <span class="large-post__date">September 25, 2015</span>
         </div>
-      </article>
+      </section>
 
-      <article>
-        <h2>Most Recent</h2>
-        <div>
+      <section>
+        <h2 class="category-header">Most Recent</h2>
+        <div class="post">
           <img src="images/baloons.jpg" alt="Still standing tall" />
-          <span>Still Standing Tall</span>
-          <p>Life begins at the end of your comfort zone.</p>
+          <a class="post__link">Still Standing Tall</a><br />
+          <span class="post__text">Life begins at the end of your comfort zone.</span><br />
           <img src="images/william.png" alt="William Wong" />
-          <span>William Wong</span>
-          <span>9/25/2015</span>
+          <span class="post__author">William Wong</span>
+          <span class="post__date">9/25/2015</span>
         </div>
-        <div>
+        <div class="post">
           <img src="images/bridge.png" alt="Sunny side up" />
-          <span>Sunny Side Up</span>
-          <p>No place is ever as bad as they tell you it's going to be.</p>
+          <a class="post__link">Sunny Side Up</a><br />
+          <span class="post__text">No place is ever as bad as they tell you it's going to be.</span><br />
           <img src="images/mat.png" alt="Mat Vogels" />
-          <span>Mat Vogels</span>
-          <span>9/25/2015</span>
+          <span class="post__author">Mat Vogels</span>
+          <span class="post__date">9/25/2015</span>
         </div>
-        <div>
+        <div class="post">
           <img src="images/water_falls.png" alt="Water falls" />
-          <span>Water Falls</span>
-          <p>We travel not to escape life, but for life not to escape us.</p>
+          <a class="post__link">Water Falls</a><br />
+          <span class="post__text">We travel not to escape life, but for life not to escape us.</span><br />
           <img src="images/mat.png" alt="Mat Vogels" />
-          <span>Mat Vogels</span>
-          <span>9/25/2015</span>
+          <span class="post__author">Mat Vogels</span>
+          <span class="post__date">9/25/2015</span>
         </div>
-        <div>
+        <div class="post">
           <img src="images/mist.png" alt="Through the mist" />
-          <span>Through The Mist</span>
-          <p>Travel makes you see what a tiny place you occupy in the world</p>
-          <img src="images/william.png" alt="William" />
-          <span>William Wong</span>
-          <span>9/25/2015</span>
+          <a class="post__link">Through the Mist</a><br />
+          <span class="post__text">Travel makes you see what a tiny place you occupy in the world.</span><br />
+          <img src="images/william.png" alt="William Wong" />
+          <span class="post__author">William Wong</span>
+          <span class="post__date">9/25/2015</span>
         </div>
-        <div>
+        <div class="post">
           <img src="images/awaken.png" alt="Awaken early" />
-          <span>Awaken Early</span>
-          <p>Not all those who wander are lost</p>
+          <a class="post__link">Awaken Early</a><br />
+          <span class="post__text">We travel not to escape life, but for life not to escape us.</span><br />
           <img src="images/mat.png" alt="Mat Vogels" />
-          <span>Mat Vogels</span>
-          <span>9/25/2015</span>
+          <span class="post__author">Mat Vogels</span>
+          <span class="post__date">9/25/2015</span>
         </div>
-        <div>
-          <img src="images/try_it.png" alt="Try it always" />
-          <span>Try It Always</span>
-          <p>
-            The world is a book, and those who do not travel read only one page.
-          </p>
-          <img src="images/mat.png" alt="Mat Vogels" />
-          <span>Mat Vogels</span>
-          <span>9/25/2015</span>
-        </div>
-      </article>
+      </section>
     </main>
 
-    <footer>
-      <span>Escape.</span><br />
-      <a href="#">HOME</a>
-      <a href="#">CATEGORIES</a>
-      <a href="#">ABOUT</a>
-      <a href="#">CONTACT</a>
+    <footer class="footer">
+      <div class="logo">
+        <a href="index.html" class="logo__text">Escape.</a>
+      </div>
+
+      <nav class="menu footer__menu">
+        <a href="index.html" class="menu__link menu__link_transpent">HOME</a>
+        <a href="#" class="menu__link menu__link_transpent">CATEGORIES</a>
+        <a href="#" class="menu__link menu__link_transpent">ABOUT</a>
+        <a href="#" class="menu__link menu__link_transpent">CONTACT</a>
+      </nav>
     </footer>
   </body>
 </html>
