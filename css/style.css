@@ -53,6 +53,10 @@
   color: #2e2e2e;
 }
 
+.menu__link_transpent {
+  opacity: 60%;
+}
+
 .topic {
   color: #ffffff;
 }
@@ -168,8 +172,4 @@
 
 .footer__menu {
   font: 11px "Oxygen", sans-serif;
-}
-
-.menu__link_transpent {
-  opacity: 60%;
 }
