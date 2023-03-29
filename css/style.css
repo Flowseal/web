@@ -18,6 +18,7 @@
 }
 
 .header {
+  width: 100vw;
   background-color: #ffffff;
 }
 
@@ -51,6 +52,10 @@
 
 .menu__link_dark {
   color: #2e2e2e;
+}
+
+.menu__link_transpent {
+  opacity: 60%;
 }
 
 .topic {
@@ -162,14 +167,15 @@
 }
 
 .footer {
+  width: 100vw;
   background-image: url("../images/footer-background.png");
   background-repeat: no-repeat;
 }
 
-.footer__menu {
-  font: 11px "Oxygen", sans-serif;
+.footer__bottom {
+  background: rgba(35, 47, 56, 0.6);
 }
 
-.menu__link_transpent {
-  opacity: 60%;
+.footer__menu {
+  font: 11px "Oxygen", sans-serif;
 }
