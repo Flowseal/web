@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Lora", serif;
-  src: url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+  font-family: 'Lora', serif;
+  src: url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 }
 
 @font-face {
-  font-family: "Oxygen", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+  font-family: 'Oxygen', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 }
 
 * {
@@ -22,16 +22,16 @@
 }
 
 .header_background_grand-canyon {
-  background-image: url("../images/grand-canyon.png");
+  background-image: url('../images/grand-canyon.png');
   background-repeat: no-repeat;
 }
 
 .header__menu {
-  font: 12px "Oxygen", sans-serif;
+  font: 12px 'Oxygen', sans-serif;
 }
 
 .logo__text {
-  font: 26px "Lora", serif;
+  font: 26px 'Lora', serif;
   color: #ffffff;
   text-decoration: none;
 }
@@ -66,16 +66,17 @@
 }
 
 .topic__heading {
-  font: 50px "Lora", serif;
+  font: 50px 'Lora', serif;
   letter-spacing: 2px;
 }
 
 .topic__text {
+  font: 17px 'Oxygen', serif;
   opacity: 63%;
 }
 
 .topic__button {
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   color: #ffffff;
   background-color: #dd783f;
   border-style: none;
@@ -85,21 +86,21 @@
 }
 
 .article__text {
-  font: 24px "Oxygen", sans-serif;
+  font: 24px 'Oxygen', sans-serif;
   color: #101315;
 }
 
 .main__menu {
-  font: 14px "Lora", serif;
+  font: 14px 'Lora', serif;
 }
 
 .category-header {
-  font: 20px "Oxygen", sans-serif;
+  font: 20px 'Oxygen', sans-serif;
   color: #2e2e2e;
 }
 
 .large-post {
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   display: block;
   color: #ffffff;
   text-decoration: none;
@@ -108,17 +109,17 @@
 }
 
 .large-post_background-the-road-ahead {
-  background-image: url("../images/articles/road_ahed.png");
+  background-image: url('../images/articles/road_ahed.png');
   background-repeat: no-repeat;
 }
 
 .large-post_background-from-top-down {
-  background-image: url("../images/articles/from_top_to_down.png");
+  background-image: url('../images/articles/from_top_to_down.png');
   background-repeat: no-repeat;
 }
 
 .large-post__name {
-  font: 27px "Lora", serif;
+  font: 27px 'Lora', serif;
 }
 
 .large-post__text {
@@ -137,7 +138,7 @@
 }
 
 .post {
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   display: block;
   background-color: #ffffff;
   text-decoration: none;
@@ -146,7 +147,7 @@
 }
 
 .post__name {
-  font: 16px "Lora", serif;
+  font: 16px 'Lora', serif;
   color: #101315;
 }
 
@@ -166,10 +167,10 @@
 }
 
 .footer {
-  background-image: url("../images/footer-background.png");
+  background-image: url('../images/footer-background.png');
   background-repeat: no-repeat;
 }
 
 .footer__menu {
-  font: 11px "Oxygen", sans-serif;
+  font: 11px 'Oxygen', sans-serif;
 }
