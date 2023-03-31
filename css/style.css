@@ -1,49 +1,64 @@
 @font-face {
-  font-family: "Lora", serif;
-  src: url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+  font-family: 'Lora', serif;
+  src: url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 }
 
 @font-face {
-  font-family: "Oxygen", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Oxygen&display=swap");
+  font-family: 'Oxygen', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
 }
 
 * {
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .page {
-  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  background-color: #F7F7F7;
 }
 
 .header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 
 .header_background_grand-canyon {
-  background-image: url("../images/grand-canyon.png");
+  background-image: url('../images/grand-canyon.png');
   background-repeat: no-repeat;
 }
 
 .header__menu {
-  font: 12px "Oxygen", sans-serif;
+  font: 12px 'Oxygen', sans-serif;
+  margin: 20px 250px 0 0;
+  display: flex;
+  gap: 41px;
+}
+
+.logo {
+  margin: 20px 0 0 250px;
 }
 
 .logo__text {
-  font: 26px "Lora", serif;
-  color: #ffffff;
+  font: 26px 'Lora', serif;
+  color: #FFFFFF;
   text-decoration: none;
 }
 
 .logo__text_dark {
-  color: #2e2e2e;
+  color: #2E2E2E;
 }
 
 .menu__link {
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .menu__link_light {
@@ -51,7 +66,7 @@
 }
 
 .menu__link_dark {
-  color: #2e2e2e;
+  color: #2E2E2E;
 }
 
 .menu__link_transpent {
@@ -59,67 +74,77 @@
 }
 
 .topic {
-  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  width: 100vw;
+  margin: 130px 0 130px 0;
 }
 
 .topic_dark {
-  color: #2e2e2e;
+  color: #2E2E2E;
 }
 
 .topic__heading {
-  font: 50px "Lora", serif;
+  font: 50px 'Lora', serif;
   letter-spacing: 2px;
 }
 
 .topic__text {
+  font: 17px 'Oxygen', sans-serif;
+  padding-top: 20px;
   opacity: 63%;
 }
 
 .topic__button {
-  font-family: "Oxygen", sans-serif;
-  color: #ffffff;
-  background-color: #dd783f;
+  font-family: 'Oxygen', sans-serif;
+  color: #FFFFFF;
+  background-color: #DD783F;
   border-style: none;
   cursor: pointer;
   width: 167px;
   height: 44px;
+  margin-top: 31px;
+  border-radius: 3px;
 }
 
 .article__text {
-  font: 24px "Oxygen", sans-serif;
+  font: 24px 'Oxygen', sans-serif;
   color: #101315;
 }
 
 .main__menu {
-  font: 14px "Lora", serif;
+  font: 14px 'Lora', serif;
 }
 
 .category-header {
-  font: 20px "Oxygen", sans-serif;
-  color: #2e2e2e;
+  font: 20px 'Oxygen', sans-serif;
+  color: #2E2E2E;
 }
 
 .large-post {
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   display: block;
-  color: #ffffff;
+  color: #FFFFFF;
   text-decoration: none;
   width: 460px;
   height: 280px;
 }
 
 .large-post_background-the-road-ahead {
-  background-image: url("../images/articles/road_ahed.png");
+  background-image: url('../images/articles/road_ahed.png');
   background-repeat: no-repeat;
 }
 
 .large-post_background-from-top-down {
-  background-image: url("../images/articles/from_top_to_down.png");
+  background-image: url('../images/articles/from_top_to_down.png');
   background-repeat: no-repeat;
 }
 
 .large-post__name {
-  font: 27px "Lora", serif;
+  font: 27px 'Lora', serif;
 }
 
 .large-post__text {
@@ -138,16 +163,16 @@
 }
 
 .post {
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
   display: block;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   text-decoration: none;
   width: 296px;
   height: 291px;
 }
 
 .post__name {
-  font: 16px "Lora", serif;
+  font: 16px 'Lora', serif;
   color: #101315;
 }
 
@@ -168,8 +193,29 @@
 
 .footer {
   width: 100vw;
-  background-image: url("../images/footer-background.png");
+  background-image: url('../images/footer-background.png');
   background-repeat: no-repeat;
+}
+
+.footer__communication {
+  font: 12px 'Oxygen', serif;
+}
+
+.communication__header {
+  font-size: 25px;
+  color: #EFEFEF;
+}
+
+.communication__email {
+  color: #817F83;
+  background-color: #FFFFFF;
+  border-radius: 3px 0 0 3px;
+}
+
+.communication__submit {
+  background-color: rgba(255, 255, 255, 0.28);
+  border-radius: 0 3px 3px 0;
+  color: #F8F8F8;
 }
 
 .footer__bottom {
@@ -177,5 +223,10 @@
 }
 
 .footer__menu {
-  font: 11px "Oxygen", sans-serif;
+  font: 11px 'Oxygen', sans-serif;
+}
+
+.line_light {
+  border-top: 1px solid #DEDEDE;
+  width: 188px;
 }
