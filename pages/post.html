@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Escape.</title>
+    <link href="/static/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body class="page">
+    <header class="header">
+      <div class="logo">
+        <a href="/home" class="logo__text logo__text_dark">Escape.</a>
+      </div>
+      <nav class="menu header__menu">
+        <a href="/home" class="menu__link menu__link_dark">HOME</a>
+        <a href="#" class="menu__link menu__link_dark">CATEGORIES</a>
+        <a href="#" class="menu__link menu__link_dark">ABOUT</a>
+        <a href="#" class="menu__link menu__link_dark">CONTACT</a>
+      </nav>
+      <div class="topic topic_dark">
+        <h1 class="topic__title">{{ .Title }}</h1>
+        <span class="topic__text">{{ .Subtitle }}</span>
+      </div>
+    </header>
+
+    <main class="main">
+      <article class="article">
+        <img class="article__preview" src="/{{ .Img }}" alt="{{ .ImgAlt }}" />
+        <div class="article__texts">
+          {{ range .Paragraphs}}
+          <p class="article__text">
+            {{.}}
+          </p>
+          {{ end }}
+        </div>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__communication">
+        <span class="communication__header">Stay in Touch</span>
+        <hr class="line_light" />
+        <div class="communication__form">
+          <input class="communication__email" type="text" placeholder="Enter your email address" />
+          <button class="communication__submit">Submit</button>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <div class="logo">
+          <a href="/home" class="logo__text">Escape.</a>
+        </div>
+        <nav class="menu footer__menu">
+          <a href="/home" class="menu__link menu__link_transpent">HOME</a>
+          <a href="#" class="menu__link menu__link_transpent">CATEGORIES</a>
+          <a href="#" class="menu__link menu__link_transpent">ABOUT</a>
+          <a href="#" class="menu__link menu__link_transpent">CONTACT</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

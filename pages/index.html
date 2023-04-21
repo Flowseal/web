@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Escape.</title>
+    <link href="/static/css/style.css" rel="stylesheet" />
+  </head>
+  <body class="page">
+    <header class="header header_background_grand-canyon">
+      <div class="logo">
+        <a href="/home" class="logo__text">Escape.</a>
+      </div>
+      <nav class="menu header__menu">
+        <a href="/home" class="menu__link">HOME</a>
+        <a href="#" class="menu__link">CATEGORIES</a>
+        <a href="#" class="menu__link">ABOUT</a>
+        <a href="#" class="menu__link">CONTACT</a>
+      </nav>
+
+      <div class="topic">
+        <h1 class="topic__title">Let's do it together.</h1>
+        <span class="topic__text">We travel the world in search of stories. Come along for the ride.</span>
+        <button class="topic__button">View Latest Posts</button>
+      </div>
+    </header>
+    <main class="main">
+      <nav class="menu main__menu">
+        <a href="#" class="menu__link menu__link_light">Nature</a>
+        <a href="#" class="menu__link menu__link_light">Photography</a>
+        <a href="#" class="menu__link menu__link_light">Relaxation</a>
+        <a href="#" class="menu__link menu__link_light">Vacation</a>
+        <a href="#" class="menu__link menu__link_light">Travel</a>
+        <a href="#" class="menu__link menu__link_light">Adventure</a>
+      </nav>
+
+      <section class="category featured-posts">
+        <h2 class="category__header">Featured Posts</h2>
+        <hr class="line_light" />
+
+        <div class="posts-rows">
+          {{ range.FeaturedPosts }}
+          <a href="post/{{ .PostId }}" class="post_decoration">
+            <div class="large-post {{ .ImgModifier }}">
+              {{ if .Tag }}
+              <span class="tag-badge">{{ .Tag }}</span>
+              {{ else }}
+              <span class="tag-badge tag-badge_hidden"></span>
+              {{ end }}
+              <span class="large-post__name">{{ .Title }}</span>
+              <span class="large-post__text">{{ .Subtitle }}</span>
+              <div class="large-post__creation-info">
+                <div class="large-post__author">
+                  <img class="large-post__avatar" src="{{ .AuthorImg }}" alt="{{ .Author }}" />
+                  <span class="large-post__author-name">{{ .Author }}</span>
+                </div>
+                <span class="large-post__date">{{ .PublishDate }}</span>
+              </div>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+      </section>
+
+      <section class="category most-recent">
+        <h2 class="category__header">Most Recent</h2>
+        <hr class="line_light" />
+
+        <div class="posts-rows">
+          {{ range.MostRecentPosts }}
+          <a href="post/{{ .PostId }}" class="post_decoration">
+            <div class="post">
+              <img src="{{ .Img }}" alt="{{ .ImgAlt }}" />
+              <span class="post__name">{{ .Title }}</span>
+              <span class="post__text">{{ .Subtitle }}</span>
+              <div class="post__creation-info">
+                <div class="post__author">
+                  <img class="avatar" src="{{ .AuthorImg }}" alt="{{ .Author }}" />
+                  <span class="post__author-name">{{ .Author }}</span>
+                </div>
+                <span class="post__date">{{ .PublishDate }}</span>
+              </div>
+            </div>
+          </a>
+          {{ end }}
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__communication">
+        <span class="communication__header">Stay in Touch</span>
+        <hr class="line_light" />
+        <div class="communication__form">
+          <input class="communication__email" type="text" placeholder="Enter your email address" />
+          <button class="communication__submit">Submit</button>
+        </div>
+      </div>
+      
+      <div class="footer__bottom">
+        <div class="logo">
+          <a href="/home" class="logo__text">Escape.</a>
+        </div>
+        <nav class="menu footer__menu">
+          <a href="/home" class="menu__link menu__link_transpent">HOME</a>
+          <a href="#" class="menu__link menu__link_transpent">CATEGORIES</a>
+          <a href="#" class="menu__link menu__link_transpent">ABOUT</a>
+          <a href="#" class="menu__link menu__link_transpent">CONTACT</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
