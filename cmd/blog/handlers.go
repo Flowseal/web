@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strings"
 	"github.com/jmoiron/sqlx"
+	"github.com/gorilla/mux"
 )
 
 type featuredPostData struct {
@@ -15,24 +16,36 @@ type featuredPostData struct {
 	Subtitle    string `db:"subtitle"`
 	ImgModifier string `db:"img_modifier"`
 	Author      string `db:"author"`
-	AuthorImg   string `db:"author_url"`
+	AuthorImg   string `db:"author_img"`
 	PublishDate string `db:"publish_date"`
+	URLTitle    string
 }
 
 type mostRecentPostData struct {
 	PostId      string `db:"post_id"`
-	Img         string `db:"img_url"`
+	Img         string `db:"img"`
 	ImgAlt      string `db:"img_alt"`
 	Title       string `db:"title"`
 	Subtitle    string `db:"subtitle"`
 	Author      string `db:"author"`
-	AuthorImg   string `db:"author_url"`
+	AuthorImg   string `db:"author_img"`
 	PublishDate string `db:"publish_date"`
+	URLTitle    string
 }
 
 type indexPage struct {
 	FeaturedPosts   []featuredPostData
 	MostRecentPosts []mostRecentPostData
+}
+
+type contentPage struct {
+	PostId     string `db:"post_id"`
+	Img        string `db:"img"`
+	ImgAlt     string `db:"img_alt"`
+	Title      string `db:"title"`
+	Subtitle   string `db:"subtitle"`
+	Content    string `db:"content"`
+	Paragraphs []string
 }
 
 func featuredPosts(db *sqlx.DB) ([]featuredPostData, error) {
@@ -44,7 +57,7 @@ func featuredPosts(db *sqlx.DB) ([]featuredPostData, error) {
 			subtitle,
 			img_modifier,
 			author,
-			author_url,
+			author_img,
 			publish_date
 		FROM
 			post
@@ -62,12 +75,12 @@ func mostRecentPosts(db *sqlx.DB) ([]mostRecentPostData, error) {
 	const query = `
 		SELECT
 			post_id,
-			img_url,
+			img,
 			img_alt,
 			title,
 			subtitle,
 			author,
-			author_url,
+			author_img,
 			publish_date
 		FROM
 			post
@@ -89,11 +102,19 @@ func homeHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	for index, post := range featuredPosts {
+		featuredPosts[index].URLTitle = strings.ReplaceAll(post.Title, " ", "-")
+	}
+	
 	mostRecentPosts, err := mostRecentPosts(db)
 	if err != nil {
 		http.Error(w, "Internal Server Error", 500)
 		log.Println(err.Error())
 		return
+	}
+
+	for index, post := range mostRecentPosts {
+		mostRecentPosts[index].URLTitle = strings.ReplaceAll(post.Title, " ", "-")
 	}
 
 	ts, err := template.ParseFiles("pages/index.html")
@@ -116,13 +137,52 @@ func homeHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func postHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
+	query := `
+		SELECT
+			post_id,
+			title,
+			subtitle,
+			img,
+			img_alt,
+			content
+		FROM
+			post
+		WHERE post_id = 
+	`
+	query += mux.Vars(r)["postId"]
+
+	var content contentPage
+	err := db.Get(&content, query)
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+
+	ts, err := template.ParseFiles("pages/post.html")
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+
+	content.Paragraphs = strings.Split(content.Content, "\n")
+
+	err = ts.Execute(w, content)
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+}
+
 func catchAllHandler(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/home" {
 			homeHandler(db, w, r)
 		} else if strings.Contains(r.URL.Path, "/post") {
-			// postHandler(w, r)
-			http.Redirect(w, r, "/home", http.StatusNotFound)
+			postHandler(db, w, r)
 		} else {
 			http.Redirect(w, r, "/home", http.StatusMovedPermanently)
 		}

@@ -6,10 +6,11 @@ CREATE TABLE post
   `tag` VARCHAR(255) NOT NULL,
   `img_modifier` VARCHAR(255),
   `author` VARCHAR(255),
-  `author_url` VARCHAR(255),
+  `author_img` VARCHAR(255),
   `publish_date` VARCHAR(255),
-  `img_url` VARCHAR(255),
+  `img` VARCHAR(255),
   `img_alt` VARCHAR(255),
   `featured` TINYINT(1) DEFAULT 0,
+  `content` TEXT NOT NULL,
   PRIMARY KEY (`post_id`)
 );

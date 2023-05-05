@@ -39,7 +39,7 @@
 
         <div class="posts-rows">
           {{ range.FeaturedPosts }}
-          <a href="post/{{ .PostId }}" class="post_decoration">
+          <a href="post/{{ .PostId }}/{{ .URLTitle }}" class="post_decoration">
             <div class="large-post {{ .ImgModifier }}">
               {{ if .Tag }}
               <span class="tag-badge">{{ .Tag }}</span>
@@ -67,7 +67,7 @@
 
         <div class="posts-rows">
           {{ range.MostRecentPosts }}
-          <a href="post/{{ .PostId }}" class="post_decoration">
+          <a href="post/{{ .PostId }}/{{ .URLTitle }}" class="post_decoration">
             <div class="post">
               <img src="{{ .Img }}" alt="{{ .ImgAlt }}" />
               <span class="post__name">{{ .Title }}</span>
