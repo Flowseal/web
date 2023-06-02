@@ -31,10 +31,11 @@ function uploadAvatar() {
         card_avatar.src = reader.result;
     });
     
-    if (file) {
-        reader.readAsDataURL(file);
+    if (!file){
+        return;
     }
 
+    reader.readAsDataURL(file);
     avatar_form.querySelector(".form__upload").classList.add("hidden");
     avatar_form.querySelector(".form__photo-upload-new").classList.remove("hidden");
     avatar_form.querySelector(".form__photo-remove").classList.remove("hidden");
