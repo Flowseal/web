@@ -5,9 +5,10 @@ import (
 	"log"
 	"net/http"
 	"strings"
-	"encoding/base64"
 	"os"
-	"time"
+	"io"
+	"encoding/base64"
+	"encoding/json"
 	"github.com/jmoiron/sqlx"
 	"github.com/gorilla/mux"
 )
@@ -52,13 +53,13 @@ type contentPage struct {
 }
 
 type publishPostRequest struct {
-	Img           string `json:"card-image"`
-	ImgName       string `json:"card-image-file-name"`
+	Img           string `json:"hero-picture-small"`
+	ImgName       string `json:"hero-picture-small-filename"`
 	Title         string `json:"title"`
 	Subtitle      string `json:"description"`
 	Author        string `json:"author-name"`
 	AuthorImg     string `json:"author-photo"`
-	AuthorImgName string `json:"author-photo-file-name"`
+	AuthorImgName string `json:"author-photo-filename"`
 	PublishDate   string `json:"date"`
 	Content       string `json:"content"`
 }
@@ -202,7 +203,7 @@ func newPost(db *sqlx.DB, req publishPostRequest) error {
 	if err != nil {
 		return err
 	}
-	_, err = db.Exec(query, "static/img/"+req.ImgName, req.Title+"-preview", req.Title, req.Subtitle, req.Author, "static/img/"+req.AuthorImgName, req.PublishDate, req.Content)
+	_, err = db.Exec(query, "static/img/" + req.ImgName, req.Title + "-preview", req.Title, req.Subtitle, req.Author, "static/img/" + req.AuthorImgName, req.PublishDate, req.Content)
 	return err
 }
 

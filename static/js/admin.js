@@ -23,7 +23,7 @@ function uploadAvatar() {
     const avatar_form = document.getElementById("author-avatar-form");
     const author_avatar = document.getElementById("author-avatar");
     const card_avatar = document.getElementById("card-avatar");
-    const file = document.getElementById("author-photo-img").files[0];
+    const file = document.getElementById("author-photo").files[0];
     const reader = new FileReader();
 
     reader.addEventListener("load", () => {
@@ -144,9 +144,9 @@ async function publish(event) {
     const outData = {};
 
     for (let [key, value] of formData.entries()) {
-      if (key == "author-photo-img" || key == "hero-picture-big" || key == "hero-picture-small") {
+      if (key == "author-photo" || key == "hero-picture-big" || key == "hero-picture-small") {
         outData[key] = await getBase64(value);
-        outData[`${key}-file-name`] = value.name;
+        outData[`${key}-filename`] = value.name;
       } else {
         outData[key] = value;
       }
