@@ -127,15 +127,38 @@ function removeHeroSmall(event) {
     hero_form.querySelector(".img-field-description").classList.remove("hidden");
 }
 
-function publish(event) {
+function getBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = (error) => reject(error);
+    });
+  }
+
+async function publish(event) {
     event.preventDefault();
 
     const main_form = document.getElementsByClassName("main__form")[0];
     const formData = new FormData(main_form);
-  
     const outData = {};
+
     for (let [key, value] of formData.entries()) {
+      if (key == "author-photo-img" || key == "hero-picture-big" || key == "hero-picture-small") {
+        outData[key] = await getBase64(value);
+        outData[`${key}-file-name`] = value.name;
+      } else {
         outData[key] = value;
+      }
     }
+
     console.log(outData);
+
+    await fetch("/api/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   }

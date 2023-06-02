@@ -48,6 +48,18 @@ type contentPage struct {
 	Paragraphs []string
 }
 
+type publishPostRequest struct {
+	Img           string `json:"card-image"`
+	ImgName       string `json:"card-image-file-name"`
+	Title         string `json:"title"`
+	Subtitle      string `json:"description"`
+	Author        string `json:"author-name"`
+	AuthorImg     string `json:"author-photo"`
+	AuthorImgName string `json:"author-photo-file-name"`
+	PublishDate   string `json:"date"`
+	Content       string `json:"content"`
+}
+
 func featuredPosts(db *sqlx.DB) ([]featuredPostData, error) {
 	const query = `
 		SELECT
