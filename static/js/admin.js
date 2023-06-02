@@ -154,11 +154,11 @@ async function publish(event) {
 
     console.log(outData);
 
-    await fetch("/api/post", {
+    const response = await fetch("/api/post", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+
+    console.log(response);
   }

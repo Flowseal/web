@@ -121,6 +121,7 @@ button {
   border-radius: 3px;
   width: 100px;
   height: 48px;
+  cursor: pointer;
 }
 
 .main-information {

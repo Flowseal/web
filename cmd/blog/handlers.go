@@ -5,6 +5,9 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"encoding/base64"
+	"os"
+	"time"
 	"github.com/jmoiron/sqlx"
 	"github.com/gorilla/mux"
 )
@@ -147,6 +150,60 @@ func homeHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
 		log.Println(err.Error())
 		return
 	}
+}
+
+func newPost(db *sqlx.DB, req publishPostRequest) error {
+	const query = `
+       INSERT INTO
+			 post
+       (
+					 img,
+           img_alt,
+					 title,
+					 subtitle,
+					 author,
+					 author_img,
+					 publish_date,
+					 content
+       )
+       VALUES
+       (
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?,
+           ?
+       )
+   `
+	card_img_decoded, err := base64.StdEncoding.DecodeString(req.Img)
+	if err != nil {
+		return err
+	}
+	card_img, err := os.Create("static/img/" + req.ImgName)
+	if err != nil {
+		return err
+	}
+	_, err = card_img.Write(card_img_decoded)
+	if err != nil {
+		return err
+	}
+	author_img_decoded, err := base64.StdEncoding.DecodeString(req.AuthorImg)
+	if err != nil {
+		return err
+	}
+	author_img, err := os.Create("static/img/" + req.AuthorImgName)
+	if err != nil {
+		return err
+	}
+	_, err = author_img.Write(author_img_decoded)
+	if err != nil {
+		return err
+	}
+	_, err = db.Exec(query, "static/img/"+req.ImgName, req.Title+"-preview", req.Title, req.Subtitle, req.Author, "static/img/"+req.AuthorImgName, req.PublishDate, req.Content)
+	return err
 }
 
 func adminHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
