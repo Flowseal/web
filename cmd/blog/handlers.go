@@ -137,6 +137,38 @@ func homeHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func adminHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
+	ts, err := template.ParseFiles("pages/admin.html")
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+
+	err = ts.Execute(w, nil)
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+}
+
+func loginHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
+	ts, err := template.ParseFiles("pages/login.html")
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+
+	err = ts.Execute(w, nil)
+	if err != nil {
+		http.Error(w, "Internal Server Error", 500)
+		log.Println(err.Error())
+		return
+	}
+}
+
 func postHandler(db *sqlx.DB, w http.ResponseWriter, r *http.Request) {
 	query := `
 		SELECT
@@ -181,6 +213,10 @@ func catchAllHandler(db *sqlx.DB) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.URL.Path == "/home" {
 			homeHandler(db, w, r)
+		} else if strings.Contains(r.URL.Path, "/admin") {
+			adminHandler(db, w, r)
+		} else if strings.Contains(r.URL.Path, "/login") {
+			loginHandler(db, w, r)
 		} else if strings.Contains(r.URL.Path, "/post") {
 			postHandler(db, w, r)
 		} else {

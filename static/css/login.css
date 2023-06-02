@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    border: 0px;
+}
+
+button {
+    border: 0px;
+}
+
+.page {
+    background-image: url('../img/ears.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100wh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 370px;
+}
+
+.title {
+    font: 400 normal 46px 'Lora', serif;
+    color: #FFFFFF;
+    width: 240px;
+}
+
+.title__author {
+    font: 400 normal 25px/31px 'Oxygen', sans-serif;
+    color: #FFFFFF;
+}
+
+.subtitle {
+    font: 400 normal 17px/25px 'Oxygen', sans-serif;
+    color: #FFFFFF;
+    padding-top: 16px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 560px;
+    background: #FFFFFF;
+    border-radius: 3px;
+    padding: 56px 0 0 40px;
+}
+
+.login__title {
+    font: 400 normal 34px/40px 'Lora', serif;
+    color: #000000;
+    padding-bottom: 50px;
+}
+
+.login__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.field__password {
+    width: 400px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;  
+}
+
+.field__name {  
+    font: 400 normal 12px/16px 'Oxygen', sans-serif;
+    color: #7A7A7A;
+    padding-bottom: 5px;
+}
+
+.field__input {
+    width: 400px;
+    height: 40px;
+    font: 400 normal 16px/24px 'Oxygen', sans-serif;
+    background: #FFFFFF;
+    border-bottom: 2px solid #EAEAEA;
+    color: #2E2E2E;
+    padding: 0 4px 0 4px;
+}
+
+.field__input:hover {
+    background: #F7F7F7;
+    border-bottom: 2px solid #2E2E2E;
+    border-radius: 5px 5px 0 0;
+}
+
+.field__input:not(:placeholder-shown) {
+    background: #F7F7F7;
+    border-bottom: 2px solid #2E2E2E;
+    border-radius: 5px 5px 0 0;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.password-eye-icon {
+    position: absolute;
+    z-index: 1;
+    margin-left: 92%;
+}
+
+.login__button {
+    margin-top: 45px;
+    font-family: 400 normal 16px/24px 'Oxygen', sans-serif;
+    color: #FFFFFF;
+    background: #DD783F;
+    border-radius: 3px;
+    width: 93px;
+    height: 48px;
+    cursor: pointer;
+}

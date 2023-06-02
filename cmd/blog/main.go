@@ -28,6 +28,8 @@ func main() {
 	mux.HandleFunc("/", catchAllHandler(dbx))
 	mux.HandleFunc("/home", catchAllHandler(dbx))	
 	mux.HandleFunc("/index", catchAllHandler(dbx))
+	mux.HandleFunc("/admin", catchAllHandler(dbx))	
+	mux.HandleFunc("/login", catchAllHandler(dbx))	
 	mux.HandleFunc("/post/{postId}/{postTitle}", catchAllHandler(dbx))
 
 	mux.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))

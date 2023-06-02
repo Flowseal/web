@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Escape.</title>
+    <link href="/static/css/admin.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+  </head>
+  <body class="page">
+    <header class="header">
+        <a class="header__title" href="/home">
+            <h1 class="title">Escape.<span class="title__author">author</span></h1>
+        </a>
+        <div class="user-avatar">
+            <div class="user-avatar__symbol">
+                N
+            </div>
+            <a class="log-out__icon" href="/login">
+                <img src="/static/img/log-out.svg" alt="log-out">
+            </a>
+        </div>
+    </header>
+    <main class="main">
+      <form class="main__form">
+        <div class="publishing">
+          <div>
+            <h2 class="publishing__title">New Post</h2>
+            <p class="publishing__subtitle">Fill out the form bellow and publish your article</p>
+          </div>
+          <input class="publishing__button" onclick="publish(event)" type="submit" value="Publsih">
+        </div>
+        
+        <div class="main-information">
+          <p class="form__block-name">Main Information</p>
+          <div class="form__fields">
+            <div>
+              <label>
+                <p class="field__name">Title</p>
+                <input id="post-title" name="title" class="input__text" placeholder="New Post" required>
+              </label>
+
+              <label>
+                <p class="field__name">Short description</p>
+                <input id="post-description" name="description" class="input__text"placeholder="Please, enter any description" required>
+              </label>
+
+              <label>
+                <p class="field__name">Author name</p>
+                <input id="post-author" name="author" class="input__text" required>
+              </label>
+
+              <div id="author-avatar-form">
+                <p class="field__name">Author Photo</p>
+                <label class="form__author-photo">
+                  <div class="form__author-photo-img">
+                    <input name="author-photo-img" id="author-photo-img" type="file" onchange="uploadAvatar()" required>
+                    <img class="author-avatar" id="author-avatar" src="/static/img/camera.png">
+                  </div>
+                  <span class="form__upload">Upload</span>
+                  <img src="/static/img/upload-new.png" class="form__photo-upload-new hidden" />
+                  <img src="/static/img/remove.png" class="form__photo-remove hidden" onclick="removeAvatar(event)" />
+                </label>
+              </div>
+
+              <label>
+                <p class="field__name">Publish Date</p>
+                <input id="post-date" name="date" class="input__text" type="date" value="2023-06-02" required>
+              </label>
+
+              <div class="hero-image" id="hero-image-big">
+                <p class="field__name">Hero Image</p>
+                <label>
+                  <div class="hero-image_big">
+                    <input type="file" accept=".png, .jpeg, .gif" name="image" id="hero-picture-big" onchange="uploadHeroBig()" required>
+                    <img class="hero-image__picture_big" src="/static/img/upload-hero-big.png">
+                  </div>
+                  <div class="hero-image__controller">
+                    <img src="/static/img/upload-new.png" class="form__photo-upload-new hidden" />
+                    <img src="/static/img/remove.png" class="form__photo-remove hidden" onclick="removeHeroBig(event)" />
+                  </div>
+                </label>
+                <p class="img-field-description">Size up to 10mb. Format: png, jpeg, gif.</p>
+              </div>
+              
+              <div class="hero-image" id="hero-image-small">
+                <p class="field__name">Hero Image</p>
+                <label>
+                  <div class="hero-image_small">
+                    <input type="file" accept=".png, .jpeg, .gif" name="image" id="hero-picture-small" onchange="uploadHeroSmall()" required>
+                    <img class="hero-image__picture_small" src="/static/img/upload-hero-small.png">
+                  </div>
+                  <div class="hero-image__controller">
+                    <img src="/static/img/upload-new.png" class="form__photo-upload-new hidden" />
+                    <img src="/static/img/remove.png" class="form__photo-remove hidden" onclick="removeHeroSmall(event)" />
+                  </div>
+                </label>
+                <p class="img-field-description">Size up to 5mb. Format: png, jpeg, gif.</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p class="field__name">Article preview</p>
+                <div class="preview-box"> 
+                  <div class="preview-box-inner">
+                      <div class="preview-box-browser-menu">
+                        <div class="preview-box-browser-menu-inner">
+                          <div class="small-circle-icon"></div>
+                          <div class="small-circle-icon"></div>
+                          <div class="small-circle-icon"></div>
+                        </div>
+                      </div>
+                      <div class="preview-box-browser">
+                        <div class="preview-box-browser-inner">
+                          <div class="preview-box-content">
+                            <p class="preview-box-content__title" id="article-title">New Post</p>
+                            <p class="preview-box-content__subtitle" id="article-subtitle">Please, enter any description</p>
+                            <img class="preview-box__img" id="article-image" src="/static/img/empty.png"/>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="field__name">Post card preview</p>
+                <div class="preview-box"> 
+                  <div class="preview-box-inner">
+                    <div class="preview-box-card">
+                      <div class="preview-box-card-inner">
+                        <img class="preview-box-card__img" id="card-image" src="/static/img/empty.png"/>
+                        <div class="preview-box-card-content">
+                            <p class="preview-box-content__title" id="card-title">New Post</p>
+                            <p class="preview-box-content__subtitle" id="card-subtitle">Please, enter any description</p>
+                        </div>
+                        <div class="preview-box__author-data">
+                          <div class="preview-box__author">
+                            <img class="preview-box__author-img" id="card-avatar" src="/static/img/empty.png"/>
+                            <p id="card-author">Enter author name</p>
+                          </div>
+                          <p id="card-date">2023-06-02</p>
+                        </div>
+                      </div>
+                    </div>             
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          <p class="form__block-name">Content</p>
+          <p class="field__name">Post content (plain text)</p>
+          <label>
+            <div>
+              <textarea name="content" class="content__text-value" placeholder="Type anything you want ..." required></textarea>
+            </div>
+          </label>
+        </div>
+      </form>
+    </main>
+  </body>
+  <script src="/static/js/admin.js"></script>
+</html>

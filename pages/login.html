@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Login</title>
+        <link href="/static/css/login.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    </head>
+    <body class="page">
+        <div>
+            <h1 class="title">Escape.<span class="title__author">author</span></h1>
+            <p class="subtitle">Log in to start creating</p>
+        </div>
+        <form class="login">
+            <p class="login__title">Log In</p>
+
+            <div class="login__fields">
+                <div>
+                    <p class="field__name">Email</p>
+                    <input name="email" class="field__input" placeholder=" "> 
+                </div>
+                <div>
+                    <p class="field__name">Password</p> 
+                    <label class="field__password">
+                        <input id="password" name="password" class="field__input" type="password" placeholder=" ">
+                        <img class="password-eye-icon" src="/static/img/eye-on.svg" onclick="changePasswordVisibility()">
+                    </label>
+                </div>
+            </div>
+
+            <button class="login__button">Log In</button>
+        </form>
+    </body>
+    <script src="/static/js/login.js"></script>
+</html>
